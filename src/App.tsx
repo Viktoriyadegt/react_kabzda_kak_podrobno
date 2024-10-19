@@ -8,7 +8,8 @@ function App() {
         <div>
             <PageTitle title={'This is App components'}/>
             <Rating rating={7}/>
-            <Accordion title={'Menu'}/>
+            <Accordion title={'Menu'} collapsed={true}/>
+            <Accordion title={'Books'} collapsed={false}/>
         </div>
     );
 }
@@ -17,7 +18,7 @@ type PageTitlePropsType = {
     title: string
 }
 const PageTitle = (props:PageTitlePropsType) => {
-    return <div> {props.title}</div>
+    return <h3> {props.title}</h3>
 }
 
 

@@ -65,9 +65,9 @@ type StarPropsType = {
 
 const Star = (props: StarPropsType) => {
     if (props.selected) {
-        return <div><b>star</b></div>
+        return <span><b>star</b></span>
     } else {
-        return <div>star</div>
+        return <span>star </span>
 
     }
 
