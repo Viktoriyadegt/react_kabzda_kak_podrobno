@@ -2,13 +2,17 @@ import React from 'react';
 import './App.css';
 
 function App() {
-  return (
-    <div>
-      This is App Component
-        <Rating/>
-        <Accordion/>
-    </div>
-  );
+    return (
+        <div>
+            <AppTitle/>
+            <Rating/>
+            <Accordion/>
+        </div>
+    );
+}
+
+const AppTitle = () => {
+    return <> This is App Component</>
 }
 
 const Rating = () => {
@@ -27,15 +31,22 @@ const Star = () => {
 
 const Accordion = () => {
     return <div>
-        <h3>Menu</h3>
-        <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-        </ul>
+        <AccordionTitle/>
+        <AccordionBody/>
     </div>
 }
 
+const AccordionTitle = () => {
+    return <h3>Menu</h3>
+}
+
+const AccordionBody = () => {
+    return <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+}
 
 
 export default App;
