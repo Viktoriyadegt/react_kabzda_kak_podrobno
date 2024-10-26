@@ -2,14 +2,23 @@ import React from 'react';
 import './App.css';
 import {Accordion} from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
+import {OnOff} from "./components/OnOff/OnOff";
 
 function App() {
     return (
         <div>
             <PageTitle title={'This is App components'}/>
-            <Rating rating={7}/>
+            <Rating rating={0}/>
+            <Rating rating={1}/>
+            <Rating rating={2}/>
+            <Rating rating={3}/>
+            <Rating rating={4}/>
+            <Rating rating={5}/>
             <Accordion title={'Menu'} collapsed={true}/>
             <Accordion title={'Books'} collapsed={false}/>
+            <OnOff />
+            <OnOff />
+
         </div>
     );
 }

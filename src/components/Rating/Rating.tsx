@@ -5,58 +5,15 @@ type RatingPropsType = {
     rating: number
 }
 export const Rating = (props: RatingPropsType) => {
-    if (props.rating === 1) {
-        return <div>
-            <Star selected={true}/>
-            <Star selected={false}/>
-            <Star selected={false}/>
-            <Star selected={false}/>
-            <Star selected={false}/>
-        </div>
-    }
-    if (props.rating === 2) {
-        return <div>
-            <Star selected={true}/>
-            <Star selected={true}/>
-            <Star selected={false}/>
-            <Star selected={false}/>
-            <Star selected={false}/>
-        </div>
-    }
-    if (props.rating === 3) {
-        return <div>
-            <Star selected={true}/>
-            <Star selected={true}/>
-            <Star selected={true}/>
-            <Star selected={false}/>
-            <Star selected={false}/>
-        </div>
-    }
-    if (props.rating === 4) {
-        return <div>
-            <Star selected={true}/>
-            <Star selected={true}/>
-            <Star selected={true}/>
-            <Star selected={true}/>
-            <Star selected={false}/>
-        </div>
-    }
-    if (props.rating === 5) {
-        return <div>
-            <Star selected={true}/>
-            <Star selected={true}/>
-            <Star selected={true}/>
-            <Star selected={true}/>
-            <Star selected={true}/>
-        </div>
-    }
+
     return <div>
-        <Star selected={false}/>
-        <Star selected={false}/>
-        <Star selected={false}/>
-        <Star selected={false}/>
-        <Star selected={false}/>
+        <Star selected={props.rating > 0}/>
+        <Star selected={props.rating > 1}/>
+        <Star selected={props.rating > 2}/>
+        <Star selected={props.rating > 3}/>
+        <Star selected={props.rating > 4}/>
     </div>
+
 }
 
 type StarPropsType = {
@@ -65,7 +22,7 @@ type StarPropsType = {
 
 const Star = (props: StarPropsType) => {
     if (props.selected) {
-        return <span><b>star</b></span>
+        return <span><b>star </b></span>
     } else {
         return <span>star </span>
 
