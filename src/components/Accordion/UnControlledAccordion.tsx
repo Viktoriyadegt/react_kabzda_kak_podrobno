@@ -10,7 +10,7 @@ export const UnControlledAccordion = (props: UnControlledAccordionPropsType) => 
 
     let [collapsed, setCollapsed] = useState(false);
 
-    const styledButton = {
+     const styledButton = {
         width: '50px',
         height: '20px',
         display: 'inline-block',
