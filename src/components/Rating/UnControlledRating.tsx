@@ -4,7 +4,7 @@ export const UnControlledRating = () => {
 
     let [rating, setReting] = useState<number>(0);
 
-    const styledButton = {
+    /*const styledButton = {
         width: '20px',
         height: '20px',
         display: 'inline-block',
@@ -13,33 +13,27 @@ export const UnControlledRating = () => {
         borderRadius: '20px',
         cursor: 'pointer',
         margin: '5px'
-    }
+    }*/
+
 
     return <div>
-        <Star selected={rating > 0}/>
-        <button style={styledButton} onClick={() => setReting(1)}></button>
-        <Star selected={rating > 1}/>
-        <button style={styledButton}  onClick={() => setReting(2)}></button>
-        <Star selected={rating > 2}/>
-        <button style={styledButton} onClick={() => setReting(3)}></button>
-        <Star selected={rating > 3}/>
-        <button style={styledButton} onClick={() => setReting(4)}></button>
-        <Star selected={rating > 4}/>
-        <button style={styledButton} onClick={() => setReting(5)}></button>
+        <Star selected={rating > 0} onClick={() => setReting(1)}/>
+        <Star selected={rating > 1} onClick={() => setReting(2)}/>
+        <Star selected={rating > 2} onClick={() => setReting(3)}/>
+        <Star selected={rating > 3} onClick={() => setReting(4)}/>
+        <Star selected={rating > 4} onClick={() => setReting(5)}/>
     </div>
 
 }
 
 type StarPropsType = {
     selected: boolean
+    onClick: () => void
 }
 
 const Star = (props: StarPropsType) => {
-    if (props.selected) {
-        return <span><b>star </b></span>
-    } else {
-        return <span>star </span>
-
-    }
+    return props.selected
+        ? <span onClick={props.onClick}><b>star </b></span>
+        : <span onClick={props.onClick}>star </span>
 
 }

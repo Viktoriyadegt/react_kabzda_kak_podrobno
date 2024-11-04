@@ -10,7 +10,7 @@ export const UnControlledAccordion = (props: UnControlledAccordionPropsType) => 
 
     let [collapsed, setCollapsed] = useState(false);
 
-     const styledButton = {
+    const styledButton = {
         width: '50px',
         height: '20px',
         display: 'inline-block',
@@ -20,8 +20,8 @@ export const UnControlledAccordion = (props: UnControlledAccordionPropsType) => 
     }
 
     return <div>
-        <AccordionTitle title={props.title}/>
-        <button style={styledButton} onClick={()=>setCollapsed(!collapsed)}></button>
+        <AccordionTitle title={props.title} onClick={() => setCollapsed(!collapsed)}/>
+        {/*<button style={styledButton} onClick={()=>setCollapsed(!collapsed)}></button>*/}
         {collapsed && <AccordionBody/>}
     </div>
 
@@ -29,10 +29,11 @@ export const UnControlledAccordion = (props: UnControlledAccordionPropsType) => 
 
 type AccordionTitlePropsType = {
     title: string
+    onClick: () => void
 }
 
 const AccordionTitle = (props: AccordionTitlePropsType) => {
-    return <h3 >{props.title}</h3>
+    return <h3 onClick={props.onClick}>{props.title}</h3>
 }
 
 type AccordionBodyPropsType = {}
