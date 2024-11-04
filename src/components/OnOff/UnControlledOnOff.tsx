@@ -1,16 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-type OnOffPropsType = {
-    value: boolean
-    changeOnOff:(value:boolean)=>void
+type UnControlledOnOffPropsType = {
+    //value: boolean
 }
 
-export const OnOff = (props: OnOffPropsType) => {
+export const UnControlledOnOff = (props: UnControlledOnOffPropsType) => {
+
+    let [value, setValue] = useState(false)
+
 
     const styledOn = {
         width: '30px',
         height: '20px',
-        backgroundColor: props.value ? 'green' : 'white',
+        backgroundColor: value ? 'green' : 'white',
         border: '1px solid black',
         display: 'inline-block',
         padding: '5px',
@@ -19,7 +21,7 @@ export const OnOff = (props: OnOffPropsType) => {
     const styledOff = {
         width: '30px',
         height: '20px',
-        backgroundColor: props.value ? 'white' : 'red',
+        backgroundColor: value ? 'white' : 'red',
         border: '1px solid black',
         display: 'inline-block',
         marginLeft: '5px',
@@ -30,18 +32,16 @@ export const OnOff = (props: OnOffPropsType) => {
         width: '10px',
         height: '10px',
         borderRadius: '10px',
-        backgroundColor: props.value ?'green' : 'red',
+        backgroundColor: value ?'green' : 'red',
         border: '1px solid black',
         display: 'inline-block',
         marginLeft: '5px'
     }
-
-    const changeOnHandler = ()=>props.changeOnOff(true)
-    const changeOffHandler = ()=>props.changeOnOff(false)
-
     return (<div>
-            <div style={styledOn} onClick={changeOnHandler}>On</div>
-            <div style={styledOff} onClick={changeOffHandler}>Off</div>
+            <div style={styledOn}
+                 onClick={()=>setValue(true)}
+            >On</div>
+            <div style={styledOff} onClick={()=>setValue(false)}>Off</div>
             <div style={indicatorOnOff}></div>
         </div>
 

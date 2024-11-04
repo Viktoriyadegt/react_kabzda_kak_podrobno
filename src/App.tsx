@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import './App.css';
 import {Rating} from "./components/Rating/Rating";
 import {Accordion} from "./components/Accordion/Accordion";
+import {OnOff} from "./components/OnOff/OnOff";
+import {UnControlledOnOff} from "./components/OnOff/UnControlledOnOff";
 
 function App() {
 
@@ -18,6 +20,12 @@ function App() {
         setReting(rating)
     }
 
+    let [value, setValue] = useState(false)
+
+    const changeOnOff = (value:boolean) => {
+        setValue(value)
+    }
+
     return (
         <div>
             <Rating rating={rating}
@@ -27,6 +35,8 @@ function App() {
                        collapsed={collapsed}
                        changeCollapsed={changeCollapsed}
             />
+            <OnOff changeOnOff={changeOnOff} value={value}/>
+            <UnControlledOnOff/>
         </div>
     );
 }

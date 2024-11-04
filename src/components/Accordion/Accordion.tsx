@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 
 type AccordionPropsType = {
     title: string
@@ -27,9 +27,9 @@ const AccordionTitle = (props: AccordionTitlePropsType) => {
     return <h3 onClick={onClickHandler}>{props.title}</h3>
 }
 
-type AccordionBodyPropsType = {}
+//type AccordionBodyPropsType = {}
 
-const AccordionBody = (props: AccordionBodyPropsType) => {
+const AccordionBody = () => {
     return <ul>
         <li>1</li>
         <li>2</li>
