@@ -1,16 +1,16 @@
-import React from "react";
+import React, {useState} from "react";
 
 type AccordionPropsType = {
     title: string
     collapsed: boolean
+    changeCollapsed: (collapsed: boolean) => void
 }
 
 export const Accordion = (props: AccordionPropsType) => {
 
 
-
     return <div>
-        <AccordionTitle title={props.title}/>
+        <AccordionTitle title={props.title} collapsed={props.collapsed} changeCollapsed={props.changeCollapsed}/>
         {!props.collapsed && <AccordionBody/>}
     </div>
 
@@ -18,10 +18,13 @@ export const Accordion = (props: AccordionPropsType) => {
 
 type AccordionTitlePropsType = {
     title: string
+    collapsed: boolean
+    changeCollapsed: (collapsed: boolean) => void
 }
 
 const AccordionTitle = (props: AccordionTitlePropsType) => {
-    return <h3>{props.title}</h3>
+    const onClickHandler = () => props.changeCollapsed(!props.collapsed)
+    return <h3 onClick={onClickHandler}>{props.title}</h3>
 }
 
 type AccordionBodyPropsType = {}
