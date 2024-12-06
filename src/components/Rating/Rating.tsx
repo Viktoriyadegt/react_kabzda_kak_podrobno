@@ -1,9 +1,9 @@
 import React from "react";
 
-
+export type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5
 type RatingPropsType = {
     rating: number
-    changeRating: (rating: number) => void
+    changeRating: (rating: RatingValueType) => void
 }
 export const Rating = (props: RatingPropsType) => {
 

@@ -6,7 +6,7 @@ export default {
 
 
 export const UnControlledOnOffDemo = () => {
-    return <UnControlledOnOff/>
+    return <UnControlledOnOff />
 };
 
 
