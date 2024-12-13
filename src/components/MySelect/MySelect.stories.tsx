@@ -2,6 +2,7 @@
 
 import {MySelect1} from "./MySelect";
 
+
 export default {
     component: MySelect1
 }
@@ -13,7 +14,5 @@ export const MySelectSuper = () => {
 
     return <MySelect1 />
 };
-
-
 
 

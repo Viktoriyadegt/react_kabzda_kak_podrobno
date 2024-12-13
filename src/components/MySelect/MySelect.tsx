@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 
 type ItemType = {
     title: string
@@ -13,23 +14,24 @@ export const MySelect1 = (props: SelectPropsType) => {
         {title: 'tomato', value: '2'},
         {title: 'fish', value: '3'}]
     )
-    const [value, setValue] = useState<string>('-----')
-    const [collapsed, setCollapsed] = useState<boolean>(true)
+    const [value, setValue] = useState<string>('')
+    const [collapsed, setCollapsed] = useState<boolean>(false)
 
-    const changeCollapsed =( ) => {
+    const changeCollapsed = () => {
         setCollapsed(!collapsed)
     }
 
     const selectedValue = (title: string) => {
         setValue(title)
-        setCollapsed(!collapsed)
     }
 
 
-    return <div>
-        <SelectedTitle value={value} changeCollapsed={changeCollapsed}/>
-        {!collapsed&&<SelectedBody items={items} selectedValue={selectedValue} changeCollapsed={changeCollapsed} />}
-    </div>
+    return <FormControl fullWidth sx={{ m: 3, maxWidth: 120 }} size="small">
+        <SelectedTitle value={'Menu'} changeCollapsed={changeCollapsed}/>
+        {!collapsed && <SelectedBody items={items} selectedValue={selectedValue} value={value}
+                                     changeCollapsed={changeCollapsed}/>}
+    </FormControl>
+
 
 }
 
@@ -41,28 +43,30 @@ type SelectedTitlePropsType = {
 
 const SelectedTitle = (props: SelectedTitlePropsType) => {
     const onClickHandler = () => props.changeCollapsed()
-    return <h3 onClick={onClickHandler}>{props.value}</h3>
+    return <InputLabel id="mySelect-label" onClick={onClickHandler}>{props.value}</InputLabel>
 }
 
 type SelectedBodyPropsType = {
     items: ItemType[]
-    selectedValue:(title:string)=>void
+    selectedValue: (title: string) => void
     changeCollapsed: () => void
+    value: string
 }
 
 const SelectedBody = (props: SelectedBodyPropsType) => {
 
-    return <ul >
+    return <Select
+        labelId="MySelect-label"
+        id="MySelect"
+        label="Menu">
         {props.items.map(item => {
             const onclickHandler = () => {
                 props.selectedValue(item.title)
             }
 
-            return <div>
-                <li key={item.value} onClick={onclickHandler}>{item.title}</li>
-            </div>
+            return <MenuItem value={ item.value} key={item.value} onClick={onclickHandler}>{item.title}</MenuItem>
         })}
-    </ul>
+    </Select>
 }
 
 
