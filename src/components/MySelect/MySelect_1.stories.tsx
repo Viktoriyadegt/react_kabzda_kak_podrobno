@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 
-import {action} from "@storybook/addon-actions";
 import {MySelect_1} from "./MySelect_1";
 
 
@@ -20,6 +19,7 @@ const items = [
 
 export const MySelect = () => {
     const [value, setValue] = useState('2')
+
 
     return <MySelect_1 items={items} value={value} onChange={setValue}/>
 };

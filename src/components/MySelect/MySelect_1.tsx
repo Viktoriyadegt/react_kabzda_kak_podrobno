@@ -1,12 +1,6 @@
 import React, {useState} from 'react';
 import styles from './MySelect_1.module.css';
 
-const items = [
-    {value: '1', title: 'Minsk'},
-    {value: '2', title: 'Gomel'},
-    {value: '3', title: 'Grodno'},
-    {value: '4', title: 'Vitebsk'},
-]
 
 export type ItemProps = {
     value: string

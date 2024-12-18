@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {MySelect2} from "./MySelect_2";
 import {action} from "@storybook/addon-actions";
 
@@ -18,7 +18,6 @@ const items = [
 
 
 export const MySelect_2 = () => {
-    const [value, setValue] = useState('')
 
     return <MySelect2 items={items} value={'3'} onChange={action('Value changed')}/>
 };
