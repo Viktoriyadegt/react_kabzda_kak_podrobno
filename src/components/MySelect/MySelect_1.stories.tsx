@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 
-import {MySelect_1} from "./MySelect_1";
+import {MySelect1} from "./MySelect1";
 
 
 export default {
-    component: MySelect_1
+    component: MySelect1
 }
 
 //const onChangeHandler = action('onChange')
@@ -21,7 +21,7 @@ export const MySelect = () => {
     const [value, setValue] = useState('2')
 
 
-    return <MySelect_1 items={items} value={value} onChange={setValue}/>
+    return <MySelect1 items={items} value={value} onChange={setValue}/>
 };
 
 

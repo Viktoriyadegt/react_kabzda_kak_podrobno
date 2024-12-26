@@ -13,3 +13,14 @@
     background-color: #1ea7fd;
     color: white;
 }
+
+.divSelect{
+    display: flex;
+    gap:55px;
+}
+
+.count{
+    display: flex;
+    gap: 15px;
+}
+
