@@ -89,32 +89,6 @@ export const ExampleSetInterval = () => {
     </div>
 };
 
-export const Clock = () => {
-    console.log('Clock')
-
-   let [clock, setClock] = useState('')
-
-    useEffect(()=>{
-
-        setInterval(()=>{
-
-            const dateObject = new Date()
-
-            const hour = dateObject.getHours()
-            const minute = dateObject.getMinutes().toString().padStart(2, '0')
-            const second = dateObject.getSeconds().toString().padStart(2, '0')
-
-            const currentTime = hour + ' : ' + minute + ' : ' + second
-
-            setClock(()=>currentTime)
-        }, 1000)
-
-    }, [])
-
-    return <div style={{fontSize:'100px', color: 'darkgray'}}>
-        {clock}
-    </div>
-};
 
 
 
