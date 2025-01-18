@@ -1,0 +1,28 @@
+
+.button {
+    display: inline-block;
+    background-color: rgba(34, 34, 191, 0.85);
+    border: 0;
+    font-size: 20px;
+    color: rgba(186, 241, 91, 0.99);
+    border-radius: 3em;
+    font-weight: 700;
+    line-height: 1;
+    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    right: 50%;
+    top: 10%
+}
+
+.button:hover {
+    background-color: rgba(91, 91, 243, 0.85);
+    cursor: pointer;
+}
+
+.button:active {
+    transform: translateY(-1px);
+}
+
+
