@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 
+
 export default {}
 
 //const onChangeHandler = action('onChange')
@@ -12,7 +13,6 @@ export const UseEffectDemoStories = () => {
     const [faceCount, setFaceCount] = useState(1)
 
     useEffect(() => {
-        //debugger
         console.log('useEffect')
         document.title = count.toString()
     }, [count]);
@@ -39,10 +39,14 @@ export const ExampleSetTimeout = () => {
 
     useEffect(() => {
         console.log('useEffect')
-        setTimeout(() => {
+        const timeoutId = setTimeout(() => {
             console.log('Timeout')
             document.title = count.toString()
         }, 2000)
+
+        return () => {
+            clearTimeout(timeoutId)
+        }
 
     }, [count]);
 
@@ -68,10 +72,14 @@ export const ExampleSetInterval = () => {
 
     useEffect(() => {
         console.log('useEffect')
-        setInterval(() => {
+        const intervalId = setInterval(() => {
             console.log(count + 'tick')
             setCount(state => state + 1)
         }, 6000)
+
+        return () => {
+            clearInterval(intervalId)
+        }
 
     }, []);
 
@@ -86,6 +94,31 @@ export const ExampleSetInterval = () => {
             setFaceCount(faceCount + 1)
         }}>+
         </button>
+    </div>
+};
+
+export const KeysTrackedExample = () => {
+
+    const [text, setText] = useState('')
+
+    useEffect(() => {
+        console.log('useEffect')
+
+        const handler = (e: KeyboardEvent) => {
+            console.log(e.key)
+            setText(text => text + e.key)
+        }
+
+        window.addEventListener('keypress', handler)
+
+        return () => {
+            window.removeEventListener('keypress', handler)
+        }
+
+    }, []);
+
+    return <div>
+        Typed text: {text}
     </div>
 };
 
