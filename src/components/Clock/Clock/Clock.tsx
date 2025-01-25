@@ -9,16 +9,11 @@ export const Clock = () => {
     useEffect(() => {
 
         const setIntervalId = setInterval(() => {
-
             setClock(new Date())
-
         }, 1000)
-
         return () => {
-
             clearInterval(setIntervalId)
         }
-
     }, [])
 
     return <div style={{fontSize: '80px', color: 'darkblue'}}>

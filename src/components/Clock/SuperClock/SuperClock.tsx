@@ -1,21 +1,14 @@
 import React, {useEffect, useState} from "react";
-import { ClockWithHands } from "./ClockWithHands";
+import { ClockWithHands } from "./clockWithHands/ClockWithHands";
+import {AnalogClock} from "./analogClock/AnalogClock";
+import {DigitalClock} from "./digitalClock/DigitalClock";
+import {Clock} from "../Clock/Clock";
 
-const get2DigitFormat = (num: number) => num < 10 ? '0' + num : num
-
-function setRotation(element: any, degrees: any) {
-    // Set the rotation and add 90 to default from 12am
-    element.style.transform = `rotate(${degrees + 90}deg)`;
-
-}
-
-const secondsElement = document.querySelector('.second');
-const minutesElement = document.querySelector('.minute');
-const hoursElement = document.querySelector('.hour');
-
+export type ViewType = 'analog' | 'digital' | 'analog2'
 
 export type Props = {
-    viewMode?: boolean
+    viewMode?: ViewType
+
 }
 
 export const SuperClock = ({viewMode}: Props) => {
@@ -23,41 +16,26 @@ export const SuperClock = ({viewMode}: Props) => {
     let [superClock, setSuperClock] = useState(new Date())
 
 
-
     useEffect(() => {
 
         const setIntervalId = setInterval(() => {
-
             setSuperClock(new Date())
-
         }, 1000)
-
         return () => {
-
             clearInterval(setIntervalId)
         }
-
     }, [])
 
-
-
-
-    return viewMode ?
-        <div style={{fontSize: '80px', color: 'darkblue'}}>
-
-            <span>{get2DigitFormat(superClock.getHours())}</span>
-            :
-            <span>{get2DigitFormat(superClock.getMinutes())}</span>
-            :
-            <span>{get2DigitFormat(superClock.getSeconds())}</span>
-        </div>
-
-        : <ClockWithHands  />
+    switch (viewMode){
+        case 'analog':
+            return <AnalogClock date={superClock}/>
+        case 'digital':
+            return <DigitalClock date={superClock}/>
+        case 'analog2':
+            return <ClockWithHands date={superClock}/>
+        default : return <Clock/>
+    }
 
 };
 
-
-/*const secondsElement = document.querySelector('.second');
-const minutesElement = document.querySelector('.minute');
-const hoursElement = document.querySelector('.hour');*/
 

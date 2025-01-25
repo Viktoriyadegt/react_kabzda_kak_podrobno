@@ -1,22 +1,12 @@
-import React, {useEffect, useState} from "react";
-import s from  './../SuperClock/ClockWithHands.module.css'
+import React from "react";
+import s from './ClockWithHands.module.css'
 
-export function ClockWithHands() {
+export function ClockWithHands({date}:{date:Date}) {
 
-    let [superClock, setSuperClock] = useState(new Date())
 
-    useEffect(() => {
-        const setIntervalId = setInterval(() => {
-            setSuperClock(new Date())
-        }, 1000)
-        return () => {
-            clearInterval(setIntervalId)
-        }
-    }, [])
-
-    const secondsDegrees = ((superClock.getSeconds() / 60) * 360) + 90;
-    const minutesDegrees = ((superClock.getMinutes() / 60) * 360) + ((superClock.getSeconds() / 60) * 6) + 90;
-    const hoursDegrees = ((superClock.getHours() / 12) * 360) + ((superClock.getMinutes() / 60) * 30) + 90;
+    const secondsDegrees = ((date.getSeconds() / 60) * 360) + 90;
+    const minutesDegrees = ((date.getMinutes() / 60) * 360) + ((date.getSeconds() / 60) * 6) + 90;
+    const hoursDegrees = ((date.getHours() / 12) * 360) + ((date.getMinutes() / 60) * 30) + 90;
 
 
     return <div className={s.clock}>
@@ -41,7 +31,6 @@ export function ClockWithHands() {
 }
 
 
-export { s };
-/*setInterval(ClockWithHands, 1000);*/
+
 
 
